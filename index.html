@@ -1,0 +1,279 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image.png" type="image/png">
+    <title>making forms</title>
+</head>
+<body>
+    <form action="index.php" method="post">
+        <label for="username"> username:</label>
+<input type="text" id="username" placeholder="username" required><br>
+<label for="password"> password:</label>
+<input type="password" id="password" placeholder="password" required><br>
+<label for="email"> email:</label>
+<input type="email" id="email" placeholder="abc123@gmail.com" required><br>
+
+<label>gender:</label>
+
+<input type="radio" name="gender" value="male"id="male">
+<label for="male">male</label>
+<input type="radio" name="gender" value="female" id="female">
+<label for="female">female</label>
+<h2>select your subjects:</h2><br>
+<label for="math">
+    <input type="checkbox" value="math" name="subject"id="math">math
+
+</label>
+<label for="physics">
+    <input type="checkbox" value="physics" name="subject"id="physics">physics
+    
+</label>
+<label for="english">
+    <input type="checkbox" value="english" name="subject"id="english">english
+    
+</label>
+<label for="db">
+    <input type="checkbox" value="db" name="subject"id="db">db
+    
+</label>
+<label for="ds">
+    <input type="checkbox" value="ds" name="subject"id="ds">ds
+   
+    
+</label><br>
+<label for="phone"> phone#</label>
+<input type="tel" id="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
+ <label for="bday"> birthdate:</label>
+<input type="date" id="bday" required><br>
+<label for="quantity"> quantity:</label>
+<input type="number" id="quantity" min="0" max="10"><br>
+<label for="city"> city</label>
+<select id="city">
+    <option>hyderabad</option>
+    <option>jamshoro</option>
+    <option>dadu</option>
+    <option>larkana</option>
+    <option>ghotki</option>
+    <option>umerkot</option>
+</select><br>
+<label for="comment"> feedback</label>
+<textarea id="comment" rows="3" cols="25"></textarea>
+<br>
+<label for="file"> file:</label>
+<input type="file" id="file" accept="image/png ,image/jpeg"><br>
+<input type="reset"><br>
+<input type="submit"><br>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magical Online Form</title>
+  <link rel="shortcut icon" href="image.png" type="image/png">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #f0e6ff);
+      margin: 0;
+      padding: 0;
+      animation: gradientFade 10s infinite alternate;
+    }
+
+    @keyframes gradientFade {
+      0% {
+        background: linear-gradient(135deg, #ffe6f0, #f0e6ff);
+      }
+      100% {
+        background: linear-gradient(135deg, #fbeaff, #e6f7ff);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: #961973;
+      font-size: 2.5em;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    form {
+      background: white;
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(150, 25, 115, 0.2);
+      animation: slideUp 1.5s ease-out;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 40px rgba(150, 25, 115, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #961973;
+      box-shadow: 0 0 10px rgba(150, 25, 115, 0.3);
+      outline: none;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    .inline-label {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 10px;
+    }
+
+    h2 {
+      margin-top: 25px;
+      color: #444;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      margin-top: 25px;
+      padding: 10px 25px;
+      background: linear-gradient(45deg, #961973, #c94fcf);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.4s, transform 0.2s;
+    }
+
+    input[type="reset"] {
+      background: linear-gradient(45deg, #6c757d, #999);
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>ONLINE FORM:</h1>
+  <form action="index.php" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" placeholder="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="password" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="abc123@gmail.com" required>
+
+    <label>Gender:</label>
+    <span class="inline-label">
+      <input type="radio" name="gender" value="male" id="male">
+      <label for="male">Male</label>
+    </span>
+    <span class="inline-label">
+      <input type="radio" name="gender" value="female" id="female">
+      <label for="female">Female</label>
+    </span>
+
+    <h2>Select your subjects:</h2>
+    <span class="inline-label"><input type="checkbox" value="math" name="subject" id="math"><label for="math">Math</label></span>
+    <span class="inline-label"><input type="checkbox" value="physics" name="subject" id="physics"><label for="physics">Physics</label></span>
+    <span class="inline-label"><input type="checkbox" value="english" name="subject" id="english"><label for="english">English</label></span>
+    <span class="inline-label"><input type="checkbox" value="db" name="subject" id="db"><label for="db">DB</label></span>
+    <span class="inline-label"><input type="checkbox" value="ds" name="subject" id="ds"><label for="ds">DS</label></span>
+
+    <label for="phone">Phone#:</label>
+    <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+    <label for="bday">Birthdate:</label>
+    <input type="date" id="bday" name="birthdate" required>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="0" max="10">
+
+    <label for="city">City:</label>
+    <select id="city" name="city">
+      <option>Hyderabad</option>
+      <option>Jamshoro</option>
+      <option>Dadu</option>
+      <option>Larkana</option>
+      <option>Ghotki</option>
+      <option>Umerkot</option>
+    </select>
+
+    <label for="comment">Feedback:</label>
+    <textarea id="comment" name="feedback" rows="3" cols="25" placeholder="Your feedback..."></textarea>
+
+    <label for="file">Upload File:</label>
+    <input type="file" id="file" name="upload" accept="image/png, image/jpeg">
+
+    <input type="reset" value="Reset">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
